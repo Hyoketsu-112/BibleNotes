@@ -1,98 +1,169 @@
-📝 Core Note-Taking Features
-Rich text editor for creating and organizing Bible study notes
+# BibleNotes - Advanced Bible Study Tools
 
-Importance levels (Low/Medium/High) with color coding
+![BibleNotes](https://img.shields.io/badge/Bible-Study%20Tools-blue)
+![Free](https://img.shields.io/badge/Price-Free-success)
+![Offline](https://img.shields.io/badge/Feature-Offline%20Capable-orange)
 
-Auto-save functionality with local storage
+A comprehensive, free Bible study application with advanced note-taking tools and scripture integration.
 
-Note organization with preview and date tracking
+## 🌟 Features
 
-Export notes as text files
+### 📝 Core Note-Taking
+- **Rich Text Editor** - Create and organize Bible study notes
+- **Importance Levels** - Color-coded priority system (Low/Medium/High)
+- **Auto-Save** - Automatic saving with local storage
+- **Note Organization** - Preview, sort, and manage multiple notes
+- **Export Functionality** - Download notes as text files
 
-📖 Bible Integration
-Multiple Bible versions: KJV, ASV, WEB, BBE
+### 📖 Bible Integration
+- **Multiple Translations** - KJV, ASV, WEB, BBE versions
+- **Complete Scripture Database** - All 66 books with chapter/verse navigation
+- **Smart Scripture Insertion** - Direct verse/chapter lookup and insertion
+- **Auto-Reference Detection** - Automatically finds and fetches scriptures mentioned in notes
 
-Complete scripture database with 66 books
+### 🔬 Advanced Study Tools
 
-Verse/chapter lookup with real-time fetching
+#### Word Study Tool
+- Original language lookup (Hebrew & Greek)
+- Word definitions and theological meanings
+- Key verse references
+- Pre-loaded database for common theological terms
 
-Scripture insertion directly into notes
+#### Cross References
+- Find related Bible passages
+- One-click addition to notes
+- Pre-mapped reference connections
 
-Auto-reference detection - finds scriptures mentioned in your notes
+#### Bible Commentary
+- Explanations for difficult passages
+- Theological insights and historical context
 
-🔬 Advanced Study Tools
-Word Study Tool
-Original language lookup (Hebrew & Greek)
+#### Reading Plans
+- **Chronological Plan** - Read through the Bible in historical order
+- **Thematic Studies** - Focused topic-based reading
+- **New Testament in 90 Days** - Structured NT reading
+- **Psalms & Proverbs** - Daily wisdom literature
+- Progress tracking with visual completion markers
 
-Word definitions and meanings
+#### Prayer List
+- Track prayer requests and needs
+- Mark answered prayers
+- Date tracking and organization
 
-Key verse references
+### 💾 Technical Features
+- **Offline Functionality** - Works without internet connection
+- **Local Storage** - No account or login required
+- **Responsive Design** - Mobile and desktop optimized
+- **Real-time Notifications** - User action feedback
+- **Completely Free** - No subscriptions or hidden costs
 
-Pre-loaded database for common theological terms
+## 🚀 Quick Start
 
-Cross References
-Find related Bible passages
+### Installation
+No installation required! Simply open `index.html` in your web browser.
 
-One-click addition to notes
+### First Use
+1. Open `index.html` in your preferred browser
+2. The app will load with a welcome note and tutorial
+3. Start creating notes or explore the study tools
 
-Pre-mapped reference connections
+### Basic Usage
+1. **Create a New Note**: Click "New Note" button
+2. **Add Scripture**: Use the Bible search panel in the sidebar
+3. **Set Importance**: Use the color-coded importance selector
+4. **Save**: Notes auto-save, or use the Save button
+5. **Explore Tools**: Click "Study Tools" for advanced features
 
-Bible Commentary
-Explanations for difficult passages
+## 🛠️ Study Tools Guide
 
-Theological insights
+### Word Studies
+1. Open Study Tools modal
+2. Select "Word Study" tab
+3. Enter a word (e.g., "faith", "grace", "love")
+4. View original languages, definitions, and key verses
 
-Historical context
+### Cross References
+1. Select "Cross References" tab
+2. Enter a Bible verse (e.g., "John 3:16")
+3. View related passages
+4. Click "Add to Note" to include in your study
 
-Reading Plans
-Multiple plan options:
+### Reading Plans
+1. Choose from available reading plans
+2. Click "Start Reading Plan"
+3. Track daily progress by clicking completed days
+4. Reading assignments automatically add to your notes
 
-Chronological reading
+### Prayer List
+1. Add prayer requests with dates
+2. Mark requests as answered
+3. Keep a running list of prayer needs
 
-Thematic studies
+## 📁 File Structure
+```
+bible-notes/
+├── index.html          # Main application file
+├── style.css           # Styles and responsive design
+└── script.js           # Application logic and functionality
+```
 
-New Testament in 90 days
+## 🔧 Technical Details
 
-Psalms & Proverbs
+### Browser Compatibility
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
 
-Progress tracking with completion markers
+### Data Storage
+- Uses browser localStorage
+- No server communication required
+- Data persists between sessions
+- Fully private and secure
 
-Prayer List
-Track prayer requests
+### API Integration
+- Uses public Bible APIs for scripture fetching
+- Fallback mechanisms for offline operation
+- Multiple translation support
 
-Mark answered prayers
+## 🌐 Online/Offline Operation
 
-Date tracking for requests
+- **Online**: Full access to scripture fetching and all features
+- **Offline**: Works with cached data and basic functionality
+- Automatic detection of connection status
 
-💾 Technical Features
-Offline functionality with online/offline detection
+## 📱 Mobile Support
 
-Local storage - no account required
+Fully responsive design that works on:
+- Smartphones
+- Tablets
+- Desktop computers
+- Touch-enabled devices
 
-Responsive design for mobile and desktop
+## 🎯 Use Cases
 
-Real-time notifications for user actions
+- **Personal Bible Study** - Deep, organized scripture study
+- **Sermon Preparation** - Note-taking and reference organization
+- **Small Groups** - Shared study and discussion preparation
+- **Academic Research** - Theological study and word analysis
+- **Devotional Journaling** - Daily reading and reflection tracking
 
-No cost - completely free to use
+## 🤝 Contributing
 
-🎯 User Experience
-Intuitive interface with clear navigation
+This is a free, open-source project. Feel free to:
+- Report bugs
+- Suggest features
+- Improve documentation
+- Share with your community
 
-Visual indicators for importance and status
+## 📄 License
 
-Quick access toolbar for common actions
+Free for personal and commercial use. No restrictions.
 
-Sample note to help users get started
+## 🙏 Support
 
-Smooth animations and transitions
+This app is provided completely free. If you find it helpful, consider:
+- Sharing with friends and family
+- Reporting any issues you encounter
+- Praying for the continued development of free Bible tools
 
-🔧 Practical Benefits
-All-in-one solution - no need for multiple apps
-
-Privacy-focused - data stays on your device
-
-No subscriptions or hidden costs
-
-Academic-grade tools for serious Bible study
-
-Personal organization for spiritual growth
