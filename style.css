@@ -1,0 +1,618 @@
+        :root {
+            --primary: #4a6fa5;
+            --primary-light: #6b8cbc;
+            --secondary: #5d8aa8;
+            --accent: #ff9f43;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4a7a9a;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #e02d3b;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #ff8c2b;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+
+        .sidebar {
+            width: 320px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-list {
+            flex: 1;
+            overflow-y: auto;
+            margin: 15px 0;
+            max-height: 300px;
+        }
+
+        .note-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+            background: var(--light);
+            position: relative;
+        }
+
+        .note-item:hover {
+            transform: translateX(5px);
+            background: #e9ecef;
+        }
+
+        .note-item.active {
+            background: rgba(74, 111, 165, 0.1);
+            border-left-color: var(--accent);
+        }
+
+        .note-item.low {
+            border-left-color: var(--success);
+        }
+
+        .note-item.medium {
+            border-left-color: var(--warning);
+        }
+
+        .note-item.high {
+            border-left-color: var(--danger);
+        }
+
+        .note-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .note-preview {
+            font-size: 13px;
+            color: #6c757d;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .delete-note {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: transparent;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .delete-note:hover {
+            color: var(--danger);
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        .editor-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .note-title-input {
+            flex: 1;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--dark);
+        }
+
+        .importance-selector {
+            display: flex;
+            gap: 10px;
+        }
+
+        .importance-btn {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .importance-btn.low {
+            background-color: var(--success);
+        }
+
+        .importance-btn.medium {
+            background-color: var(--warning);
+        }
+
+        .importance-btn.high {
+            background-color: var(--danger);
+        }
+
+        .importance-btn.active {
+            border-color: var(--dark);
+        }
+
+        .note-editor {
+            flex: 1;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+            flex-wrap: wrap;
+        }
+
+        .toolbar button {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .editor {
+            flex: 1;
+            border: none;
+            outline: none;
+            resize: none;
+            background: transparent;
+            color: var(--dark);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .bible-quote {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .bible-quote .reference {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .delete-scripture {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: transparent;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .delete-scripture:hover {
+            color: var(--danger);
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        .bible-search {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+
+        .bible-search input, .bible-search select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+        }
+
+        .bible-results {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .bible-verse {
+            padding: 8px;
+            margin-bottom: 5px;
+            background: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .bible-verse:hover {
+            background: #e9ecef;
+        }
+
+        .offline-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--warning);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1000;
+            display: none;
+            box-shadow: var(--shadow);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .scripture-count {
+            font-size: 12px;
+            color: var(--secondary);
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .bible-version-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bible-version-selector select {
+            flex: 1;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+        }
+
+        /* Study Tools Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .study-tools-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .study-tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6c757d;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .study-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .study-tab-content {
+            display: none;
+        }
+
+        .study-tab-content.active {
+            display: block;
+        }
+
+        .word-study-results, .cross-reference-results, .commentary-results {
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+
+        .word-study-item, .cross-ref-item, .commentary-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--accent);
+        }
+
+        .original-language {
+            font-style: italic;
+            color: var(--secondary);
+            margin: 5px 0;
+        }
+
+        .strongs-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .reading-plan {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .reading-day {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .reading-day:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .reading-day.completed {
+            background: var(--success);
+            color: white;
+        }
+
+        .prayer-list {
+            margin-top: 15px;
+        }
+
+        .prayer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+
+        .prayer-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .highlight-yellow {
+            background-color: #fff3cd;
+        }
+
+        .highlight-blue {
+            background-color: #d1ecf1;
+        }
+
+        .highlight-green {
+            background-color: #d4edda;
+        }
+
+        .highlight-pink {
+            background-color: #f8d7da;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .note-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .importance-selector {
+                align-self: flex-end;
+            }
+            
+            .toolbar {
+                justify-content: center;
+            }
+            
+            .reading-plan {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibleNotes - Advanced Bible Study Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="offline-indicator" id="offlineIndicator">
+        <i class="fas fa-wifi"></i> Offline Mode
+    </div>
+
+    <div class="notification" id="notification"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-book-bible"></i>
+                BibleNotes - Study Tools
+            </div>
+            <div class="controls">
+                <button class="btn-primary" id="newNoteBtn">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+                <button class="btn-primary" id="saveNoteBtn">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button class="btn-danger" id="deleteNoteBtn">
+                    <i class="fas fa-trash"></i> Delete Note
+                </button>
+                <button class="btn-accent" id="studyToolsBtn">
+                    <i class="fas fa-tools"></i> Study Tools
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h3><i class="fas fa-sticky-note"></i> Your Notes</h3>
+                <div class="note-list" id="noteList">
+                    <!-- Notes will be dynamically added here -->
+                </div>
+                
+                <div class="bible-search">
+                    <h4><i class="fas fa-bible"></i> Bible Search</h4>
+                    
+                    <div class="bible-version-selector">
+                        <select id="bibleVersion">
+                            <option value="kjv">KJV</option>
+                            <option value="asv">ASV</option>
+                            <option value="web">WEB</option>
+                            <option value="bbe">BBE</option>
+                        </select>
+                    </div>
+                    
+                    <select id="bibleBookSelect">
+                        <option value="">Select a Book</option>
+                        <!-- Bible books will be populated here -->
+                    </select>
+                    <input type="number" id="bibleChapter" placeholder="Chapter" min="1">
+                    <input type="number" id="bibleVerse" placeholder="Verse (optional)" min="1">
+                    <button class="btn-primary" id="fetchVerseBtn" style="width: 100%;">
+                        <i class="fas fa-search"></i> Get Scripture
+                    </button>
+                    
+                    <div class="scripture-count" id="scriptureCount">
+                        Complete Bible with 66 books
+                    </div>
+                    
+                    <div class="bible-results" id="bibleResults">
+                        <!-- Bible search results will appear here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="note-header">
+                    <input type="text" id="noteTitle" class="note-title-input" placeholder="Note Title">
+                    <div class="importance-selector">
+                        <div class="importance-btn low active" data-importance="low"></div>
+                        <div class="importance-btn medium" data-importance="medium"></div>
+                        <div class="importance-btn high" data-importance="high"></div>
+                    </div>
+                </div>
+
+                <div class="note-editor">
+                    <div class="toolbar">
+                        <button class="btn-primary" id="addScriptureBtn">
+                            <i class="fas fa-bible"></i> Add Scripture
+                        </button>
+                        <button class="btn-secondary" id="autoReferenceBtn">
+                            <i class="fas fa-magic"></i> Auto-Reference
+                        </button>
+                        <button class="btn-secondary" id="highlightBtn">
+                            <i class="fas fa-highlighter"></i> Highlight
+                        </button>
+                        <button class="btn-primary" id="exportNoteBtn">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                    <textarea id="noteEditor" class="editor" placeholder="Start typing your note here..."></textarea>
+                    
+                    <div id="scriptureContainer">
+                        <!-- Bible verses will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Tools Modal -->
+    <div class="modal" id="studyToolsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Advanced Bible Study Tools</div>
+                <button class="close-modal" id="closeStudyToolsBtn">&times;</button>
+            </div>
+            
+            <div class="study-tools-tabs">
+                <button class="study-tab active" data-tab="word-study">Word Study</button>
+                <button class="study-tab" data-tab="cross-references">Cross References</button>
+                <button class="study-tab" data-tab="commentary">Commentary</button>
+                <button class="study-tab" data-tab="reading-plan">Reading Plan</button>
+                <button class="study-tab" data-tab="prayer-list">Prayer List</button>
+            </div>
+            
+            <div class="study-tab-content active" id="word-study-tab">
+                <h3>Word Study Tool</h3>
+                <p>Enter a word to study its meaning in original languages and find related verses.</p>
+                <div style="display: flex; gap: 10px; margin: 15px 0;">
+                    <input type="text" id="wordStudyInput" placeholder="Enter a word (e.g., faith, love, grace)" style="flex: 1; padding: 10px; border: 1px solid #ced4da; border-radius: var(--border-radius);">
+                    <button class="btn-primary" id="searchWordStudy">
+                        <i class="fas fa-search"></i> Study
+                    </button>
+                </div>
+                <div class="word-study-results" id="wordStudyResults">
+                    <!-- Word study results will appear here -->
+                </div>
+            </div>
+            
+            <div class="study-tab-content" id="cross-references-tab">
+                <h3>Cross References</h3>
+                <p>Find related verses and passages that connect to your current scripture.</p>
+                <div style="display: flex; gap: 10px; margin: 15px 0;">
+                    <input type="text" id="crossRefInput" placeholder="Enter a verse (e.g., John 3:16)" style="flex: 1; padding: 10px; border: 1px solid #ced4da; border-radius: var(--border-radius);">
+                    <button class="btn-primary" id="searchCrossReferences">
+                        <i class="fas fa-search"></i> Find References
+                    </button>
+                </div>
+                <div class="cross-reference-results" id="crossReferenceResults">
+                    <!-- Cross reference results will appear here -->
+                </div>
+            </div>
+            
+            <div class="study-tab-content" id="commentary-tab">
+                <h3>Bible Commentary</h3>
+                <p>Get insights and explanations for difficult passages.</p>
+                <div style="display: flex; gap: 10px; margin: 15px 0;">
+                    <input type="text" id="commentaryInput" placeholder="Enter a verse or passage" style="flex: 1; padding: 10px; border: 1px solid #ced4da; border-radius: var(--border-radius);">
+                    <button class="btn-primary" id="searchCommentary">
+                        <i class="fas fa-search"></i> Get Commentary
+                    </button>
+                </div>
+                <div class="commentary-results" id="commentaryResults">
+                    <!-- Commentary results will appear here -->
+                </div>
+            </div>
+            
+            <div class="study-tab-content" id="reading-plan-tab">
+                <h3>Bible Reading Plan</h3>
+                <p>Track your progress through a systematic Bible reading plan.</p>
+                <div style="margin: 15px 0;">
+                    <select id="readingPlanSelect" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: var(--border-radius); margin-bottom: 15px;">
+                        <option value="chronological">Chronological Plan</option>
+                        <option value="thematic">Thematic Plan</option>
+                        <option value="new-testament">New Testament in 90 Days</option>
+                        <option value="psalms-proverbs">Psalms & Proverbs</option>
+                    </select>
+                    <button class="btn-primary" id="startReadingPlan" style="width: 100%;">
+                        <i class="fas fa-play"></i> Start Reading Plan
+                    </button>
+                </div>
+                <div class="reading-plan" id="readingPlan">
+                    <!-- Reading plan will appear here -->
+                </div>
+            </div>
+            
+            <div class="study-tab-content" id="prayer-list-tab">
+                <h3>Prayer List</h3>
+                <p>Keep track of your prayer requests and answered prayers.</p>
+                <div style="display: flex; gap: 10px; margin: 15px 0;">
+                    <input type="text" id="prayerInput" placeholder="Enter a prayer request" style="flex: 1; padding: 10px; border: 1px solid #ced4da; border-radius: var(--border-radius);">
+                    <button class="btn-primary" id="addPrayerRequest">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                <div class="prayer-list" id="prayerList">
+                    <!-- Prayer list will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
