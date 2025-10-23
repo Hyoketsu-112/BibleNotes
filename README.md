@@ -3,6 +3,7 @@
 ![BibleNotes](https://img.shields.io/badge/Bible-Study%20Tools-blue)
 ![Free](https://img.shields.io/badge/Price-Free-success)
 ![Offline](https://img.shields.io/badge/Feature-Offline%20Capable-orange)
+https://biblenotess.netlify.app/
 
 A comprehensive, free Bible study application with advanced note-taking tools and scripture integration.
 
