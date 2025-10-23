@@ -167,3 +167,4 @@ This app is provided completely free. If you find it helpful, consider:
 - Reporting any issues you encounter
 - Praying for the continued development of free Bible tools
 
+https://biblenotess.netlify.app/
